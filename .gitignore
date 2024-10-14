@@ -1,3 +1,5 @@
 # For my private stuff. (Don't look!)
 **/*secret*
 
+# For vim
+**/*.swp
