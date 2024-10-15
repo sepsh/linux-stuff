@@ -10,6 +10,7 @@ if [[ $(type -t ls) == "alias" ]]; then
 else
 	ls="ls"
 fi
+my_aliases[l]="$ls"
 my_aliases[ll]="$ls -l"
 my_aliases[la]="$ls -a"
 my_aliases[lla]="$ls -la"
