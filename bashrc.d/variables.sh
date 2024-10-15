@@ -1,0 +1,1 @@
+export UV_PYTHON_PREFERENCE=only-managed
