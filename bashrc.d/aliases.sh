@@ -20,10 +20,17 @@ unset ls
 # Aliases for "ip"
 
 my_aliases[ipa]="ip address show"
-my_aliases[ipt]="ip address show tun0"
-my_aliases[ipv]="ip address show vpn0"
-my_aliases[ipw]="ip address show wlp4s0"
-my_aliases[ipe]="ip address show enp0s31f6"
+declare -A my_interfaces
+interface_names=$(
+	ip link show | \
+	grep -E '^[[:digit:]]+:[[:space:]]+[[:alnum:]]+:.+$' | \
+	awk '{print substr($2,1,length($2)-1)}'
+)
+for interface in $interface_names; do
+	shorthand="$(echo $interface | awk '{print substr($0,1,1)}')"
+	my_aliases["ip$shorthand"]="ip address show $interface"
+done
+unset my_interfaces
 
 
 # All aliases will be set in this loop
