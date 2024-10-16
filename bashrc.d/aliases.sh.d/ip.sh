@@ -20,4 +20,7 @@ for interface in $interface_names; do
         my_aliases["ip$shorthand"]="ip address show $interface"
 done
 unset my_interfaces
+unset interface_names
+unset interface
+unset shorthand
 

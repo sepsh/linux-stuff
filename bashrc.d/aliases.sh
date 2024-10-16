@@ -23,4 +23,5 @@ for key in "${!my_aliases[@]}"; do
 	fi
 done
 unset my_aliases
+unset key
 
