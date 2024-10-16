@@ -3,7 +3,9 @@ My Linux stuff. I will dump my scripts here. Feel free to criticize my bad pract
 
 ## Automatic setup
 
-Run `setup.sh` script.
+Bash usually runs every script you put under `~/.bashrc.d/*` or `~/.bashrc.d/*.sh`.
+
+Run `setup.sh` script to link `bashrc.d` from this repo in `~/.bashrc.d/` in your machine.
 
 ```bash
 bash setup.sh
