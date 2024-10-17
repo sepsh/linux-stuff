@@ -23,4 +23,3 @@ unset my_interfaces
 unset interface_names
 unset interface
 unset shorthand
-
