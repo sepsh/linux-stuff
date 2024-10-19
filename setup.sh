@@ -3,9 +3,9 @@
 bashrcd_source="$PWD/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
-	echo $bashrcd_source not found. skipping...
+	echo "'$bashrcd_source' not found. skipping..."
 elif [[ -e $bashrcd_target ]]; then
-	echo $bashrcd_target exists. skipping
+	echo "'$bashrcd_target' exists. skipping..."
 else
 	echo "Creating symlink"
 	(
@@ -17,7 +17,7 @@ fi
 # Configre "~/.bashrc" to load .sh files from "~/.bashrc.d/"
 
 if [[ ! $(cat ~/.bashrc | grep '.bashrc.d') ]]; then
-	echo Configuring '~/.bashrc' to include './.bashrd.d/*sh'
+	echo "Configuring '~/.bashrc' to include './.bashrd.d/*sh'"
 	cat << EOF >> ~/.bashrc
 # Created automatically by https://github.com/sepsh/linux-stuff/blob/main/setup.sh
 
@@ -32,5 +32,5 @@ unset rc
 
 EOF
 else
-	echo ~/.bashrc is configured. skipping
+	echo "'~/.bashrc' is configured. skipping..."
 fi
