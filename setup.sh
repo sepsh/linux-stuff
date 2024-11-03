@@ -16,25 +16,21 @@ else
 fi
 )
 
-# Configre "~/.bashrc" to load .sh files from "~/.bashrc.d/"
 
-if [[ ! $(cat ~/.bashrc | grep '.bashrc.d') ]]; then
-	echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'"
-	cat << EOF >> ~/.bashrc
+# Configre "~/.bashrc" to inclued .sh files from "~/.bashrc.d/"
 
-# Created automatically by https://github.com/sepsh/linux-stuff/blob/main/setup.sh
-
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*.sh; do
-		if [ -f \$rc ]; then
-			. "\$rc"
-		fi
-	done
-fi
-unset rc
-
-EOF
-else
-	echo "'~/.bashrc' is configured. skipping..."
-fi
+(
+bashrc_d_load_script="if test -d ~/.bashrc.d; then for rc in ~/.bashrc.d/*.sh; do if test -f \$rc; then . \$rc ; fi; done; unset rc ; fi"
+case $(cat ~/.bashrc) in
+	*"$bashrc_d_load_script"*)
+		echo "'~/.bashrc' is already configured to include '~/.bashrc.d/*.sh'. skipping..."
+	;;
+	*)
+		echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'"
+		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)" >> ~/.bashrc
+		echo $bashrc_d_load_script >> ~/.bashrc
+		echo "" >> ~/.bashrc
+	;;
+esac
+)
 
