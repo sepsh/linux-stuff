@@ -19,7 +19,7 @@ unset al_rc
 
 for key in "${!my_aliases[@]}"; do
 	case $(type -t $key) in
-		"")
+		"" | "alias")
 			alias $key="${my_aliases[$key]}"
 			;;
 		*) ;;
