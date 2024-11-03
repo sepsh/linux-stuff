@@ -1,5 +1,6 @@
 # Create a link to bashrc.d in ~/.bashrc.d
 
+(
 bashrcd_source="$PWD/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
@@ -13,6 +14,7 @@ else
 	ln -s $bashrcd_source $bashrcd_target
 	)
 fi
+)
 
 # Configre "~/.bashrc" to load .sh files from "~/.bashrc.d/"
 
