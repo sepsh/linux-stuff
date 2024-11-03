@@ -4,9 +4,9 @@
 bashrcd_source="$PWD/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
-	echo "'$bashrcd_source' not found. skipping..."
+	echo -e "Skipping...\n\t'$bashrcd_source' not found."
 elif [[ -e $bashrcd_target ]]; then
-	echo "'$bashrcd_target' exists. skipping..."
+	echo -e "Skipping...\n\t'$bashrcd_target' exists."
 else
 	echo "Creating symlink"
 	(
@@ -23,7 +23,7 @@ fi
 bashrc_d_load_script="if test -d ~/.bashrc.d; then for rc in ~/.bashrc.d/*.sh; do if test -f \$rc; then . \$rc ; fi; done; unset rc ; fi"
 case $(cat ~/.bashrc) in
 	*"$bashrc_d_load_script"*)
-		echo "'~/.bashrc' is already configured to include '~/.bashrc.d/*.sh'. skipping..."
+		echo -e "Skipping...\n\t'~/.bashrc' is already configured to include '~/.bashrc.d/*.sh'."
 	;;
 	*)
 		echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'"
