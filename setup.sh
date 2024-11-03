@@ -34,3 +34,4 @@ EOF
 else
 	echo "'~/.bashrc' is configured. skipping..."
 fi
+
