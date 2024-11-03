@@ -18,9 +18,12 @@ unset al_rc
 
 
 for key in "${!my_aliases[@]}"; do
-	if [[ $(type -t $key) == "" ]]; then
-		alias $key="${my_aliases[$key]}"
-	fi
+	case $(type -t $key) in
+		"")
+			alias $key="${my_aliases[$key]}"
+			;;
+		*) ;;
+	esac
 done
 unset my_aliases
 unset key
