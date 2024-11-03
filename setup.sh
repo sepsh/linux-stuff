@@ -19,6 +19,7 @@ fi
 if [[ ! $(cat ~/.bashrc | grep '.bashrc.d') ]]; then
 	echo "Configuring '~/.bashrc' to include './.bashrd.d/*sh'"
 	cat << EOF >> ~/.bashrc
+
 # Created automatically by https://github.com/sepsh/linux-stuff/blob/main/setup.sh
 
 if [ -d ~/.bashrc.d ]; then
