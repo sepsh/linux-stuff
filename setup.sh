@@ -8,11 +8,12 @@ if [[ ! -d $bashrcd_source ]]; then
 elif [[ -e $bashrcd_target ]]; then
 	echo -e "Skipping...\n\t'$bashrcd_target' exists."
 else
-	echo "Creating symlink"
-	(
-	set -x;
+	echo "Creating symlink..."
+	echo -e "\tMake a symbolic link to"
+	echo -e "\t\"$bashrcd_target\""
+	echo -e "\tin"
+	echo -e "\t\"$bashrcd_source\""
 	ln -s $bashrcd_source $bashrcd_target
-	)
 fi
 )
 
@@ -26,8 +27,12 @@ case $(cat ~/.bashrc) in
 		echo -e "Skipping...\n\t'~/.bashrc' is already configured to include '~/.bashrc.d/*.sh'."
 	;;
 	*)
-		echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'"
+		echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'..."
 		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)" >> ~/.bashrc
+		echo -e "\tAppend"
+		echo -e "\t\"$bashrc_d_load_script\""
+		echo -e "\tto"
+		echo -e "\t\"~/.bashrc\""
 		echo $bashrc_d_load_script >> ~/.bashrc
 		echo "" >> ~/.bashrc
 	;;
