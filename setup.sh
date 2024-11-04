@@ -1,6 +1,5 @@
 # Create a link to bashrc.d in ~/.bashrc.d
 
-(
 bashrcd_source="$PWD/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
@@ -13,7 +12,7 @@ else
 	echo -e "\t '$bashrcd_target' -> '$bashrcd_source'"
 	ln -s $bashrcd_source $bashrcd_target
 fi
-)
+unset bashrcd_source bashrcd_target
 
 
 # Configre "~/.bashrc" to source "~/.bashrc.d/main.sh"
