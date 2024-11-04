@@ -21,10 +21,13 @@ fi
 
 # Configre "~/.bashrc" to source "~/.bashrc.d/main.sh"
 
-bashrc_d_source_script="source ~/.bashrc.d/main.sh"
+bashrc_d_source_script="BASHRC_D_MAIN_SH_SOULD_RUN=true; source ~/.bashrc.d/main.sh; unset BASHRC_D_MAIN_SH_SOULD_RUN"
 case $(cat ~/.bashrc) in
 	*"$bashrc_d_source_script"*)
 		echo -e "Skipping...\n\t'~/.bashrc' is already configures to source '~/.bashrc.d/main.sh'"
+	;;
+	*".bashrc.d"*)
+		echo -e "Skipping...\n\t'~/.bashrc' contains other configuration pointing to '~/.bashrc.d'"
 	;;
 	*)
 		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/main.sh'..."
