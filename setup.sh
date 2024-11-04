@@ -4,7 +4,8 @@
 bashrcd_source="$PWD/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
-	echo -e "Skipping...\n\t'$bashrcd_source' not found."
+	echo "Error! '$bashrcd_source' not found."
+	exit 1
 elif [[ -e $bashrcd_target ]]; then
 	echo -e "Skipping...\n\t'$bashrcd_target' exists."
 else
