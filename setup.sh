@@ -1,6 +1,6 @@
 # Create a link to bashrc.d in ~/.bashrc.d
 
-bashrcd_source="$PWD/bashrc.d"
+bashrcd_source="$( dirname $(realpath $BASH_SOURCE) )/bashrc.d"
 bashrcd_target="$HOME/.bashrc.d"
 if [[ ! -d $bashrcd_source ]]; then
 	echo "Error! '$bashrcd_source' not found."
