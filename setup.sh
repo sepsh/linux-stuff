@@ -19,24 +19,19 @@ fi
 )
 
 
-# Configre "~/.bashrc" to inclued .sh files from "~/.bashrc.d/"
+# Configre "~/.bashrc" to source "~/.bashrc.d/main.sh"
 
-(
-bashrc_d_load_script="if test -d ~/.bashrc.d; then for rc in ~/.bashrc.d/*.sh; do if test -f \$rc; then . \$rc ; fi; done; unset rc ; fi"
+bashrc_d_source_script="source ~/.bashrc.d/main.sh"
 case $(cat ~/.bashrc) in
-	*"$bashrc_d_load_script"*)
-		echo -e "Skipping...\n\t'~/.bashrc' is already configured to include '~/.bashrc.d/*.sh'."
+	*"$bashrc_d_source_script"*)
+		echo -e "Skipping...\n\t'~/.bashrc' is already configures to source '~/.bashrc.d/main.sh'"
 	;;
 	*)
-		echo "Configuring '~/.bashrc' to include '~/.bashrc.d/*.sh'..."
+		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/main.sh'..."
 		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)" >> ~/.bashrc
-		echo -e "\tAppend"
-		echo -e "\t\"$bashrc_d_load_script\""
-		echo -e "\tto"
-		echo -e "\t\"~/.bashrc\""
-		echo $bashrc_d_load_script >> ~/.bashrc
-		echo "" >> ~/.bashrc
+		echo -e "$bashrc_d_source_script\n" >> ~/.bashrc
+
 	;;
 esac
-)
+unset $bashrc_d_source_script
 
