@@ -8,8 +8,7 @@ if [[ ! -d $bashrcd_source ]]; then
 elif [[ -e $bashrcd_target ]]; then
 	echo -e "Skipping...\n\t'$bashrcd_target' exists."
 else
-	echo "Creating symlink..."
-	echo -e "\t '$bashrcd_target' -> '$bashrcd_source'"
+	echo "Linkling '$bashrcd_target' -> '$bashrcd_source'"
 	ln -s $bashrcd_source $bashrcd_target
 fi
 unset bashrcd_source bashrcd_target
