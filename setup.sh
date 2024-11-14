@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Create a link to bashrc.d in ~/.bashrc.d
 
 bashrcd_source="$( dirname $(realpath $BASH_SOURCE) )/bashrc.d"
