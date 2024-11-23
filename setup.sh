@@ -8,7 +8,7 @@ if [[ ! -d $bashrcd_source ]]; then
 	echo "Error! '$bashrcd_source' not found."
 	exit 1
 elif [[ -e $bashrcd_target ]]; then
-	echo -e "Skipping...\n\t'$bashrcd_target' exists."
+	echo "Skipping: '$bashrcd_target' exists."
 else
 	echo "Linkling '$bashrcd_target' -> '$bashrcd_source'"
 	ln -s $bashrcd_source $bashrcd_target
@@ -21,10 +21,10 @@ unset bashrcd_source bashrcd_target
 bashrc_d_source_script="BASHRC_D_MAIN_SH_SOULD_RUN=true; source ~/.bashrc.d/00-main.sh; unset BASHRC_D_MAIN_SH_SOULD_RUN"
 case $(cat ~/.bashrc) in
 	*"$bashrc_d_source_script"*)
-		echo -e "Skipping...\n\t'~/.bashrc' is already configures to source '~/.bashrc.d/00-main.sh'."
+		echo "Skipping: '~/.bashrc' is already configures to source '~/.bashrc.d/00-main.sh'."
 	;;
 	*".bashrc.d"*)
-		echo -e "Skipping...\n\t'~/.bashrc' contains other configuration pointing to '~/.bashrc.d'."
+		echo "Skipping: '~/.bashrc' contains other configuration pointing to '~/.bashrc.d'."
 	;;
 	*)
 		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/00-main.sh'..."
