@@ -16,18 +16,18 @@ fi
 unset bashrcd_source bashrcd_target
 
 
-# Configre "~/.bashrc" to source "~/.bashrc.d/main.sh"
+# Configre "~/.bashrc" to source "~/.bashrc.d/00-main.sh"
 
-bashrc_d_source_script="BASHRC_D_MAIN_SH_SOULD_RUN=true; source ~/.bashrc.d/main.sh; unset BASHRC_D_MAIN_SH_SOULD_RUN"
+bashrc_d_source_script="BASHRC_D_MAIN_SH_SOULD_RUN=true; source ~/.bashrc.d/00-main.sh; unset BASHRC_D_MAIN_SH_SOULD_RUN"
 case $(cat ~/.bashrc) in
 	*"$bashrc_d_source_script"*)
-		echo -e "Skipping...\n\t'~/.bashrc' is already configures to source '~/.bashrc.d/main.sh'."
+		echo -e "Skipping...\n\t'~/.bashrc' is already configures to source '~/.bashrc.d/00-main.sh'."
 	;;
 	*".bashrc.d"*)
 		echo -e "Skipping...\n\t'~/.bashrc' contains other configuration pointing to '~/.bashrc.d'."
 	;;
 	*)
-		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/main.sh'..."
+		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/00-main.sh'..."
 		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)" >> ~/.bashrc
 		echo -e "$bashrc_d_source_script\n" >> ~/.bashrc
 
