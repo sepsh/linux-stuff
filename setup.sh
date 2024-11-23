@@ -28,7 +28,7 @@ case $(cat ~/.bashrc) in
 	;;
 	*)
 		echo "Configuring '~/.bashrc' to source '~/.bashrc.d/00-main.sh'..."
-		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)" >> ~/.bashrc
+		echo -e "\n# Created automatically by $(realpath $BASH_SOURCE)\n# commit: '$(git rev-parse HEAD)'" >> ~/.bashrc
 		echo -e "$bashrc_d_source_script\n" >> ~/.bashrc
 
 	;;
