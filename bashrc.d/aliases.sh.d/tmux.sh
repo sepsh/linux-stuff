@@ -5,6 +5,8 @@
 # Static aliases
 
 
+my_aliases[tm]="tmux"
+
 my_aliases[tml]="tmux ls"
 my_aliases[tmls]="tmux ls"
 
