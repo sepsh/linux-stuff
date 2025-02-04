@@ -1,11 +1,9 @@
 # Aliases for "ls"
 # this files will be sources by aliases.sh
 
-if [[ $(type -t ls) == "alias" ]]; then
-        ls="${BASH_ALIASES[ls]}"
-else
-        ls="ls"
-fi
+ls="ls -h --color=auto"
+
+my_aliases[ls]="$ls"
 my_aliases[l]="$ls"
 my_aliases[ll]="$ls -l"
 my_aliases[la]="$ls -a"
