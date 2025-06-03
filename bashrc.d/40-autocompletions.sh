@@ -13,5 +13,7 @@ if command_exists kubectl; then source <(kubectl completion bash); fi
 
 if command_exists kind; then source <(kind completion bash); fi
 
+if command_exists kind; then source <(argocd completion bash); fi
+
 unset command_exists
 
