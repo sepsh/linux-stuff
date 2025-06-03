@@ -9,7 +9,7 @@ if command_exists uvx; then eval "$(uvx --generate-shell-completion bash)"; fi
 
 if command_exists kubectl; then source <(kubectl completion bash); fi
 
-if command_exists pulumi; then source <(pulumi gen-completion bash); fi
+if command_exists pulumi; then source <(PULUMI_SKIP_UPDATE_CHECK=true; pulumi gen-completion bash); fi
 
 if command_exists kind; then source <(kind completion bash); fi
 
