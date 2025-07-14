@@ -5,6 +5,7 @@
 # Static aliases
 
 my_aliases[c]="clear"
+my_aliases[ncal]="ncal -b"
 
 # Dynamic aliases
 
