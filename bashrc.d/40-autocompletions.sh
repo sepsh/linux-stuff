@@ -13,5 +13,8 @@ if command_exists kind; then source <(kind completion bash); fi
 
 if command_exists argocd; then source <(argocd completion bash); fi
 
+if command_exists rustup; then source <(rustup completions bash); fi
+if command_exists rustup; then source <(rustup completions bash cargo); fi
+
 unset command_exists
 
