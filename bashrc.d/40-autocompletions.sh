@@ -2,6 +2,8 @@ function command_exists() {
 	return $(command -v $1 > /dev/null)
 }
 
+if command_exists pip; then eval "$(pip completion --bash)"; fi
+
 if command_exists pipx; then
 	if command_exists register-python-argcomplete; then
 		eval "$(register-python-argcomplete pipx)";
